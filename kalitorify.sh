@@ -1,34 +1,37 @@
 #!/usr/bin/env bash
 
+#!/usr/bin/env bash
+
 ################################################################################
 #                                                                              #
 # kalitorify.sh                                                                #
 #                                                                              #
-# version: 1.29.0                                                              #
+# Version: 1.29.0-fixip                                                        #
 #                                                                              #
 # Kali Linux - Transparent proxy through Tor                                   #
 #                                                                              #
-# Copyright (C) 2015-2022 brainf+ck                                            #
+# Original Author: brainfucksec (2015-2022)                                    #
+# Fork & Modifications: Andrea (2026)                                          #
 #                                                                              #
-# Kalitorify is KISS version of Parrot AnonSurf Module of Parrot OS:           #
-# - https://www.parrotsec.org                                                  #
-# - https://nest.parrot.sh/packages/tools/anonsurf                             #
+# Description:                                                                 #
+# A simple transparent proxy for Kali Linux using Tor.                         #
+# This fork includes a fix for check_ip() to avoid unreliable IP API responses.#
 #                                                                              #
+# References:                                                                  #
+# - Original: https://github.com/brainfucksec/kalitorify                       #
+# - Parrot AnonSurf Module: https://nest.parrot.sh/packages/tools/anonsurf     #
 #                                                                              #
-# GNU GENERAL PUBLIC LICENSE                                                   #
+# License: GNU GENERAL PUBLIC LICENSE v3                                       #
 #                                                                              #
-# This program is free software: you can redistribute it and/or modify         #
-# it under the terms of the GNU General Public License as published by         #
-# the Free Software Foundation, either version 3 of the License, or            #
-# (at your option) any later version.                                          #
+# This program is free software: you can redistribute it and/or modify it      #
+# under the terms of the GNU General Public License as published by            #
+# the Free Software Foundation, either version 3 of the License, or any later  #
+# version.                                                                     #
 #                                                                              #
 # This program is distributed in the hope that it will be useful,              #
 # but WITHOUT ANY WARRANTY; without even the implied warranty of               #
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                #
-# GNU General Public License for more details.                                 #
-#                                                                              #
-# You should have received a copy of the GNU General Public License            #
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.        #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU GPL for     #
+# more details: <http://www.gnu.org/licenses/>.                                #
 #                                                                              #
 ################################################################################
 
@@ -292,7 +295,7 @@ check_ip() {
 
     # IP API URLs list
     local url_list=(
-        'https://ipinfo.io/'
+        #'https://ipinfo.io/'
         'https://api.myip.com/'
         'https://ifconfig.me'
     )
@@ -526,4 +529,3 @@ main() {
 
 # Call main
 main "${@}"
-
